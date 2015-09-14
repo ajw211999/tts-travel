@@ -1,9 +1,4 @@
 <h1>My Destination Wish List</h1>
-<div class = "btn-group">
-  <%= link_to "All", destinations_path %>
-  <%= link_to 'USA', :controller => 'destinations', :country => 'USA', :class => "btn btn-default" %>
-  <%= link_to 'Nicaragua', :controller => 'destinations', :country => 'Nicaragua', :class => "btn btn-default" %>
-</div>
 
   <div class="row">
     <% @destinations.each do |destination| %>
