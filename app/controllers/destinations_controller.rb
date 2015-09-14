@@ -1,4 +1,6 @@
 class DestinationsController < ApplicationController
+  include DestinationsHelper
+
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
   # GET /destinations
@@ -6,7 +8,8 @@ class DestinationsController < ApplicationController
   def index
     if params[:country]
      # @destinations = Destination.all
-       @destinations = Destination.where(country: params[:country])
+       @destinations = destinations_in_country params[:country]
+       @countries = Destination.pluck(:country).uniq.sort
     else
       @destinations = Destination.all
      end
